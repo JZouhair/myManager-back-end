@@ -31,6 +31,18 @@ public class EmpTraitement {
 				.where(EMPLOYE.ID.eq(id))
                 .execute();
 	}
+	//UPDATE
+		public void updateEmp(Employe emp) {
+			dsl.update(EMPLOYE)
+			.set(EMPLOYE.CIN, emp.getCin())
+			.set(EMPLOYE.EMAIL,emp.getEmail())
+			.set(EMPLOYE.NAME, emp.getName())
+			.set(EMPLOYE.ROLE, emp.getRole())
+			.set(EMPLOYE.TELE, emp.getTele())
+			.where(EMPLOYE.ID.equal(emp.getId()))
+			.execute();
+		}
+	
 	//INSERT
 	public void addOneEmp(Employe emp) {
 		dsl.insertInto(EMPLOYE)
@@ -42,10 +54,7 @@ public class EmpTraitement {
 		.set(EMPLOYE.TELE, emp.getTele())
 		.execute();
 	}
-	//UPDATE
-	public void updateEmp(Employe emp) {
-		
-	}
+	
 	
 	
 	
