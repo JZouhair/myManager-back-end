@@ -42,5 +42,14 @@ public class EmpTraitement {
 		.set(EMPLOYE.TELE, emp.getTele())
 		.execute();
 	}
+	//UPDATE
+	public void updateEmp(Employe emp) {
+		
+	}
+	
+	
+	
+	
+	
 
 }

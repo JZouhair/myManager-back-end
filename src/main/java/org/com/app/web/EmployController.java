@@ -2,6 +2,8 @@ package org.com.app.web;
 import java.util.List;
 import org.com.app.metier.EmpTraitement;
 import org.com.app.tables.pojos.Employe;
+
+import static org.com.app.tables.Employe.EMPLOYE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +30,25 @@ public class EmployController {
 		  empTraitement.delecteOneEmploye(id);
 		  return "an employe with id ="+id+"was deleted";
 	}
+	//INSERT
+	public void addOneEmp(Employe emp) {
+		
+	}
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
