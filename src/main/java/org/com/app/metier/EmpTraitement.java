@@ -6,7 +6,7 @@ import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 @Component
-public class EmpTraitement {
+public class EmpTraitement implements InterTraitement {
 	@Autowired
 	private DSLContext dsl;
 	public EmpTraitement(DSLContext dsl) {
@@ -14,11 +14,12 @@ public class EmpTraitement {
 		this.dsl = dsl;
 	}
 	//SELECT ONE
-	public List<Employe> selectOneEmploye(int id){
+	@Override
+	public List<Employe> selectOneEmploye(int id) {
 		return dsl.selectFrom(EMPLOYE)
 				.where(EMPLOYE.ID.eq(id))
-                .fetchInto(Employe.class);
-	}
+				.fetchInto(Employe.class);
+		}
 	//SELECT ALL
 	public List<Employe> selectAllEmploye(){
 		return  dsl
@@ -54,6 +55,11 @@ public class EmpTraitement {
 		.set(EMPLOYE.TELE, emp.getTele())
 		.execute();
 	}
+	
+
+	
+	
+	
 	
 	
 	
