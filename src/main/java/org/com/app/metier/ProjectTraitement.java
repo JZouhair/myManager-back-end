@@ -1,16 +1,29 @@
 package org.com.app.metier;
 
+import static org.com.app.tables.Employe.EMPLOYE;
+
 import java.util.List;
 
+import static org.com.app.tables.Project.PROJECT;
+import org.com.app.tables.pojos.Employe;
 import org.com.app.tables.pojos.Project;
+import org.jooq.DSLContext;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProjectTraitement implements InterProjectTraitement {
 
+	@Autowired
+	private DSLContext dsl;
+	public ProjectTraitement(DSLContext dsl) {
+		super();
+		this.dsl = dsl;
+	}
 	//SELECT * FROM PROJECT
 	@Override
 	public List<Project> selectAllProject() {
-		// TODO Auto-generated method stub
-		return null;
+		return  dsl
+				.selectFrom(PROJECT)
+				.fetchInto(Project.class);
 	}
 	//SELECT ONE FROM PROJECT
 	@Override
