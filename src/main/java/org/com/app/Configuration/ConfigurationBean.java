@@ -1,4 +1,4 @@
-package org.com.app.Configuration;
+package org.com.app.configuration;
 
 import javax.sql.DataSource;
 
